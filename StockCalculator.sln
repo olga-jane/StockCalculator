@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockCalculator", "StockCalculator\StockCalculator.csproj", "{8B3BECFD-2836-425D-B89F-BAC7F14AE154}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockCalculator.Tests", "StockCalculator.Tests\StockCalculator.Tests.csproj", "{1BC45370-4B97-423C-920C-935E59EDD9D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B3BECFD-2836-425D-B89F-BAC7F14AE154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B3BECFD-2836-425D-B89F-BAC7F14AE154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B3BECFD-2836-425D-B89F-BAC7F14AE154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B3BECFD-2836-425D-B89F-BAC7F14AE154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BC45370-4B97-423C-920C-935E59EDD9D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BC45370-4B97-423C-920C-935E59EDD9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BC45370-4B97-423C-920C-935E59EDD9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BC45370-4B97-423C-920C-935E59EDD9D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
