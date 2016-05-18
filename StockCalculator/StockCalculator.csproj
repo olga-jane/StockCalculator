@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\EnterDetailsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\StocksController.cs" />
     <Compile Include="Controllers\ViewResultController.cs" />
@@ -169,6 +170,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\EnterDetails\EnterDetails.cshtml" />
     <Content Include="Views\ViewResult\ViewResult.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
