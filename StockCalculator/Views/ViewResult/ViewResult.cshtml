@@ -1,10 +1,13 @@
-﻿<h2> Calculation result </h2>
+﻿<h2> Calculated result </h2>
+<h5> Stock </h5>
 
 <table id="stock"></table>
 
-<h5> Calculation result </h5>
+<h5> Calculated result </h5>
 
 <table id="result"></table>
+
+@Scripts.Render("~/Scripts/tables.helper.js")
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script>
@@ -15,8 +18,8 @@
             // Send an AJAX request
             $.getJSON(url)
                 .done(function (data) {
-                    var element = document.getElementById("placeholder");
-                    element.appendChild(document.createTextNode(data.Name));
+                    createStockTable(document.getElementById("stock"), data);
+                    createResultTable(document.getElementById("result"), data.Values);
                 });
         });
 
