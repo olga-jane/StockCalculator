@@ -68,7 +68,7 @@ function createResultTable(tableElement, values) {
 	tr.appendChild(createTextCell("Value", "th"));
 	tableElement.appendChild(tr);
 
-	for(var value in values) {
-		tableElement.appendChild(createFieldValueRow(value.Year, value.Value));
+	for (var index = 0; index < values.length; index++) {
+	    tableElement.appendChild(createFieldValueRow(values[index].Year, values[index].Value));
 	}
 }

@@ -26,7 +26,6 @@ namespace StockCalculator.Models
         /// Save stock data with list of values
         /// </summary>
         /// <param name="stock">stock data with list of values</param>
-        /// <returns>status of saving</returns>
-        bool SaveStock(Stock stock);
+        void SaveStock(Stock stock);
     }
 }

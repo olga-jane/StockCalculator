@@ -14,6 +14,8 @@ namespace StockCalculator.Controllers
         private readonly IStockRepository repository;
         private readonly IFinanceCalculator calculator;
 
+        private readonly string errorMessage = "An error happened. Please see error log";
+
         public StocksController() : this(new StockFileRepository("C:/TmpData"), new FinanceCalculator())
         {
         }
@@ -39,7 +41,7 @@ namespace StockCalculator.Controllers
             catch (Exception e)
             {
                 // TODO: log critical error
-                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError) { ReasonPhrase = e.Message });
+                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError) { ReasonPhrase = errorMessage });
             }
             return result;
         }
@@ -55,7 +57,7 @@ namespace StockCalculator.Controllers
             catch (Exception e)
             {
                 // TODO: log critical error
-                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError) { ReasonPhrase = e.Message });
+                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError) { ReasonPhrase = errorMessage });
             }
             if (stock == null)
             {
@@ -66,37 +68,22 @@ namespace StockCalculator.Controllers
         }
 
         [HttpPost]
-        public bool Save(Stock stock)
-        {
-            bool success = false;
-            try
-            {
-                success = repository.SaveStock(stock);
-            }
-            catch (Exception e)
-            {
-                // TODO: log critical error
-                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError) { ReasonPhrase = e.Message });
-            }
-            return success;
-        }
-
-        [HttpPost]
-        public Stock Calculate(Stock stock)
+        public Stock CalculateAndSave(Stock stock)
         {
             try
             {
                 stock.Values = calculator.Calculate(stock).ToList();
+                repository.SaveStock(stock);
             }
-            catch(CalculationException e)
+            catch (CalculationException e)
             {
                 // TODO: log critical error
-                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = e.Message });
+                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = errorMessage });
             }
             catch (Exception e)
             {
                 // TODO: log critical error
-                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError) { ReasonPhrase = e.Message });
+                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError) { ReasonPhrase = errorMessage });
             }
             return stock;
         }

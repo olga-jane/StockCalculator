@@ -82,7 +82,7 @@ namespace StockCalculator.Tests.Controllers
 
                 calculator.Setup(s => s.Calculate(data.stockData)).Returns(data.valuesData);
 
-                Assert.IsTrue(stocksController.Calculate(data.stockData));
+                Assert.IsNotNull(stocksController.CalculateAndSave(data.stockData));
                 Assert.IsNotNull(data.stockData.Values);
                 Assert.AreEqual(data.valuesData.Count, data.stockData.Values.Count);
             });
@@ -113,7 +113,15 @@ namespace StockCalculator.Tests.Controllers
 
                 var oldValuesData = data.stockData.Values;
 
-                Assert.IsFalse(stocksController.Calculate(data.stockData));
+                try
+                {
+                    stocksController.CalculateAndSave(data.stockData);
+                    Assert.Fail();
+                }
+                catch (Exception e)
+                {
+                    // OK
+                }
                 Assert.IsNotNull(data.stockData.Values);
                 Assert.AreEqual(oldValuesData, data.stockData.Values);
             });

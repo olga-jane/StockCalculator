@@ -1,1 +1,62 @@
-﻿<h1>Enter stock details</h1>
+﻿<h2>Enter stock details</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td><label for="stockname">Stock name:</label></td>
+            <td align="left"><input type="text" maxlength="1000" size="50" name="stockname" /></td>
+        </tr>
+        <tr>
+            <td><label for="stockprice">Price:</label></td>
+            <td align="left"><input type="number" step="0.01" min="0" max="1000000000" name="stockprice" /></td>
+        </tr>
+        <tr>
+            <td><label for="stockquantity">Quantity:</label></td>
+            <td align="left"><input type="number" min="0" max="1000000" name="stockquantity" /></td>
+        </tr>
+        <tr>
+            <td><label for="stockpercentage">Percentage:</label></td>
+            <td align="left"><input type="number"  step="0.01" min="0" max="1000" name="stockpercentage" /></td>
+        </tr>
+        <tr>
+            <td><label for="stockyears">Years:</label></td>
+            <td align="left"><input type="number" min="0" max="1000" name="stockyears" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="left"><input type="button" value="Calculate" name="submit" onclick="processStock(this.form)" /></td>
+        </tr>
+</table>
+    
+}
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+<script>
+    function processStock(form) {
+
+        var url = '@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "stocks", action= "CalculateAndSave" })';
+
+        var stock = {
+            Name: form.stockname.value,
+            Price: form.stockprice.value,
+            Quantity: form.stockquantity.value,
+            Percentage: form.stockpercentage.value,
+            Years: form.stockyears.value
+        };
+
+        $.ajax({
+            type: "POST",
+            data: JSON.stringify(stock),
+            url: url,
+            contentType: "application/json"
+        }).done(function (res) {
+            var url = '@Url.RouteUrl("Default", new { httproute = "", controller = "ViewResult", action= "ViewResult" })';
+            window.location.replace(url + "/" + res.Id);
+        });
+    }
+</script>
