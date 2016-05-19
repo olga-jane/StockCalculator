@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockCalculator.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

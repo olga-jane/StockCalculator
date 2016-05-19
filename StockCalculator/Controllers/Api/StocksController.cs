@@ -10,25 +10,36 @@ namespace StockCalculator.Controllers
 {
     public class StocksController : ApiController
     {
-        private Stock[] stocks = new Stock[]
-            {
-                new Stock { Id = 1, Name = "Apple", Percentage = 3.0M, Price = 2.0M, Quantity = 200, Years = 10 },
-                new Stock { Id = 2, Name = "Apple2", Percentage = 4.0M, Price = 3.0M, Quantity = 300, Years = 12 },
-            };
+        private readonly IStockRepository repository;
+
+        public StocksController() : this(new StockFileRepository("C:/TmpData"))
+        {
+        }
+
+        public StocksController(IStockRepository repository)
+        {
+            this.repository = repository;
+        }
 
         public IEnumerable<Stock> Get()
         {
-            return stocks;
+            return repository.GetStocks();
         }
 
         public Stock Get(int id)
         {
-            var stock = stocks.FirstOrDefault((p) => p.Id == id);
+            var stock = repository.GetStock(id);
             if (stock == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
             return stock;
+        }
+
+        [HttpPost]
+        public bool Save(Stock stock)
+        {
+            return repository.SaveStock(stock);
         }
     }
 }
