@@ -13,5 +13,6 @@ namespace StockCalculator.Models
         public int Quantity { get; set; }
         public decimal Percentage { get; set; }
         public int Years { get; set; }
+        public IList<StockYearValue> Values { get; set; }
     }
 }
