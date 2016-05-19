@@ -12,7 +12,7 @@ namespace StockCalculator.Controllers
         public ActionResult NotFound()
         {
             Response.StatusCode = 404;
-            return View();
+            return View("NotFound");
         }
     }
 }

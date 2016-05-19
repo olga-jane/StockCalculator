@@ -12,6 +12,11 @@ namespace StockCalculator.Controllers
         // GET: ViewResult
         public ActionResult Index()
         {
+            return View("ViewStocks");
+        }
+
+        public ActionResult ViewResult()
+        {
             return View("ViewResult");
         }
     }

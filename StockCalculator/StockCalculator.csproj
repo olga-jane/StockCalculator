@@ -136,9 +136,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\IStockRepository.cs" />
+    <Compile Include="Models\Services\CalculationException.cs" />
+    <Compile Include="Models\Services\FinanceCalculator.cs" />
+    <Compile Include="Models\Services\IFinanceCalculator.cs" />
+    <Compile Include="Models\Services\IStockRepository.cs" />
     <Compile Include="Models\Stock.cs" />
-    <Compile Include="Models\StockFileRepository.cs" />
+    <Compile Include="Models\Services\StockFileRepository.cs" />
     <Compile Include="Models\StockYearValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -174,6 +177,7 @@
     <Content Include="Views\EnterDetails\EnterDetails.cshtml" />
     <Content Include="Views\ViewResult\ViewResult.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\ViewResult\ViewStocks.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
