@@ -1,16 +1,23 @@
-﻿<h1>Calculation result</h1>
+﻿<h2> Calculation result </h2>
 
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
-<script>
+<table id="stock"></table>
 
-var uri = 'api/stocks';
+<h5> Calculation result </h5>
 
-$.ajax({
-    type: "POST",
-    data: JSON.stringify(model),
-    url: "api/Stocks/Save",
-    contentType: "application/json"
-}).done(function(res) {
-    console.log('res', res);
-});
-</script>
+<table id="result"></table>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+
+        var url = '@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "stocks", id = @ViewData["id"] })';
+
+        $(document).ready(function () {
+            // Send an AJAX request
+            $.getJSON(url)
+                .done(function (data) {
+                    var element = document.getElementById("placeholder");
+                    element.appendChild(document.createTextNode(data.Name));
+                });
+        });
+
+    </script>

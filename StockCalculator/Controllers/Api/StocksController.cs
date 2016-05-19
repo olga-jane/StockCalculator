@@ -24,6 +24,7 @@ namespace StockCalculator.Controllers
             this.calculator = calculator;
         }
 
+        [HttpGet]
         public IEnumerable<Stock> Get()
         {
             IEnumerable<Stock> result = null;
@@ -43,6 +44,7 @@ namespace StockCalculator.Controllers
             return result;
         }
 
+        [HttpGet]
         public Stock Get(int id)
         {
             Stock stock = null;

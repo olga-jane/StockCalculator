@@ -178,6 +178,7 @@
     <Content Include="Views\ViewResult\ViewResult.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\ViewResult\ViewStocks.cshtml" />
+    <Content Include="Scripts\tables.helper.js" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -15,8 +15,9 @@ namespace StockCalculator.Controllers
             return View("ViewStocks");
         }
 
-        public ActionResult ViewResult()
+        public ActionResult ViewResult(int id)
         {
+            ViewData["id"] = id;
             return View("ViewResult");
         }
     }
