@@ -22,6 +22,7 @@ namespace StockCalculator.Tests.Controllers
 
             var stocks = new List<Stock>()
             {
+                new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118737"), Name = "Name1", Percentage = 2 }
             };
 
             var stocksController = new StocksController(repository.Object, calculator.Object);
@@ -45,6 +46,7 @@ namespace StockCalculator.Tests.Controllers
             // this approach is instead of TestCase which is not available in MS Test 
             var values = new[] {
                 // 2 years
+                new { stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118730"), Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = 2 },
                       valuesData = new List<StockYearValue>()
                         {
                             new StockYearValue(),
@@ -53,12 +55,14 @@ namespace StockCalculator.Tests.Controllers
                         }
                 },
                 // 0 years
+                new { stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118731"), Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = 0 },
                       valuesData = new List<StockYearValue>()
                         {
                             new StockYearValue(),
                         }
                 },
                 // 105 percentage
+                new { stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118732"), Name = "Apple", Percentage = 105, Price = 2, Quantity = 200, Years = 5 },
                       valuesData = new List<StockYearValue>()
                         {
                             new StockYearValue(),
@@ -90,10 +94,13 @@ namespace StockCalculator.Tests.Controllers
             // this approach is instead of TestCase which is not available in MS Test 
             var values = new[] {
                 // -1 years
+                new { stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118733"), Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = -1, Values = new List<StockYearValue>() }
                 },
                 // -1 price
+                new { stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118734"), Name = "Apple", Percentage = 3, Price = -1, Quantity = 200, Years = 2, Values = new List<StockYearValue>() }
                 },
                 // -1 quantity
+                new { stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118735"), Name = "Apple", Percentage = 3, Price = 3, Quantity = -1, Years = 2, Values = new List<StockYearValue>() }
                 },
             };
 
