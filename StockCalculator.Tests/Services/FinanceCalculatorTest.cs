@@ -34,6 +34,8 @@ namespace StockCalculator.Tests.Services
         private void EqualStockTest(Stock s1, Stock s2)
         {
             Assert.AreEqual(s1.Id, s2.Id);
+            Assert.IsNotNull(s1.Name);
+            Assert.IsNotNull(s2.Name);
             Assert.AreEqual(s1.Name, s2.Name, false);
             Assert.AreEqual(s1.Percentage, s2.Percentage);
             Assert.AreEqual(s1.Price, s2.Price);
