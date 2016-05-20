@@ -1,0 +1,27 @@
+﻿<h2>Stock productivity result</h2>
+
+<table id="stocks"></table>
+
+@Scripts.Render("~/Scripts/tables.helper.js")
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+<script>
+    var uri = 'api/stocks';
+
+    $(document).ready(function () {
+      // Send an AJAX request
+      $.getJSON(uri)
+          .done(function (data) {
+              // On success, 'data' contains a list of stocks.
+              var table = document.getElementById("stocks");
+              table.appendChild(createStocksHeader());
+              $.each(data, function (key, item) {
+                  var actionLink = '@Html.ActionLink("View productivity result", "ViewResult", "ViewResult", new { id = "template_for_id_long_identifier" }, null)';
+                  table.appendChild(createStocksRow(item, actionLink.replace(/template_for_id_long_identifier/g, item.Id)));
+            });
+          });
+    });
+
+
+</script>
+
