@@ -21,7 +21,7 @@ namespace StockCalculator.Models
             fullFileNameTemplate = dataDir + "/" + fileNameTemplate;
         }
 
-        public Stock GetStock(int id)
+        public Stock GetStock(Guid id)
         {
             Stock stock = null;
 

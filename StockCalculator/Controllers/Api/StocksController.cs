@@ -47,7 +47,7 @@ namespace StockCalculator.Controllers
         }
 
         [HttpGet]
-        public Stock Get(int id)
+        public Stock Get(Guid id)
         {
             Stock stock = null;
             try
@@ -73,6 +73,10 @@ namespace StockCalculator.Controllers
             try
             {
                 stock.Values = calculator.Calculate(stock).ToList();
+                if (stock.Id == Guid.Empty)
+                {
+                    stock.Id = Guid.NewGuid();
+                }
                 repository.SaveStock(stock);
             }
             catch (CalculationException e)

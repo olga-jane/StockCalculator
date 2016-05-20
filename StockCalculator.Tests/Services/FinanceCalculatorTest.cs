@@ -50,8 +50,8 @@ namespace StockCalculator.Tests.Services
             var values = new[] {
                 // 2 years
                 new {
-                      modelStockData = new Stock { Id = 1, Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = 2 },
-                      stockData = new Stock { Id = 1, Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = 2 },
+                      modelStockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118740"), Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = 2 },
+                      stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118740"), Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = 2 },
                       valuesData = new List<StockYearValue>()
                         {
                             new StockYearValue { Id = 0, Year = 0, Value = 400.00M },
@@ -61,8 +61,8 @@ namespace StockCalculator.Tests.Services
                 },
                 // 0 years
                 new {
-                      modelStockData = new Stock { Id = 1, Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = 0 },
-                      stockData = new Stock { Id = 1, Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = 0 },
+                      modelStockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118741"), Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = 0 },
+                      stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118741"), Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = 0 },
                       valuesData = new List<StockYearValue>()
                         {
                             new StockYearValue { Id = 0, Year = 0, Value = 400.00M },
@@ -70,8 +70,8 @@ namespace StockCalculator.Tests.Services
                 },
                 // 105 percentage
                 new {
-                      modelStockData = new Stock { Id = 1, Name = "Apple", Percentage = 105, Price = 2, Quantity = 200, Years = 5 },
-                      stockData = new Stock { Id = 1, Name = "Apple", Percentage = 105, Price = 2, Quantity = 200, Years = 5 },
+                      modelStockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118742"), Name = "Apple", Percentage = 105, Price = 2, Quantity = 200, Years = 5 },
+                      stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118742"), Name = "Apple", Percentage = 105, Price = 2, Quantity = 200, Years = 5 },
                       valuesData = new List<StockYearValue>()
                         {
                             new StockYearValue { Id = 0, Year = 0, Value = 400.00M },
@@ -112,23 +112,23 @@ namespace StockCalculator.Tests.Services
             var values = new[] {
                 // -1 years
                 new {
-                      modelStockData = new Stock { Id = 1, Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = -1 },
-                      stockData = new Stock { Id = 1, Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = -1 },
+                      modelStockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118743"), Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = -1 },
+                      stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118743"), Name = "Apple", Percentage = 3, Price = 2, Quantity = 200, Years = -1 },
                 },
                 // -1 price
                 new {
-                      modelStockData = new Stock { Id = 1, Name = "Apple", Percentage = 3, Price = -1, Quantity = 200, Years = 0 },
-                      stockData = new Stock { Id = 1, Name = "Apple", Percentage = 3, Price = -1, Quantity = 200, Years = 0 },
+                      modelStockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118744"), Name = "Apple", Percentage = 3, Price = -1, Quantity = 200, Years = 0 },
+                      stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118744"), Name = "Apple", Percentage = 3, Price = -1, Quantity = 200, Years = 0 },
                 },
                 // -1 quantity
                 new {
-                      modelStockData = new Stock { Id = 1, Name = "Apple", Percentage = 105, Price = 2, Quantity = -1, Years = 5 },
-                      stockData = new Stock { Id = 1, Name = "Apple", Percentage = 105, Price = 2, Quantity = -1, Years = 5 },
+                      modelStockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118745"), Name = "Apple", Percentage = 105, Price = 2, Quantity = -1, Years = 5 },
+                      stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118745"), Name = "Apple", Percentage = 105, Price = 2, Quantity = -1, Years = 5 },
                 },
                 // -1 percentage
                 new {
-                      modelStockData = new Stock { Id = 1, Name = "Apple", Percentage = -1, Price = 2, Quantity = 200, Years = 5 },
-                      stockData = new Stock { Id = 1, Name = "Apple", Percentage = -1, Price = 2, Quantity = 200, Years = 5 },
+                      modelStockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118746"), Name = "Apple", Percentage = -1, Price = 2, Quantity = 200, Years = 5 },
+                      stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118746"), Name = "Apple", Percentage = -1, Price = 2, Quantity = 200, Years = 5 },
                 },
             };
 
@@ -147,7 +147,7 @@ namespace StockCalculator.Tests.Services
         public void CalculateExceptionPriceTest()
         {
             // max value price
-            var stockData = new Stock { Id = 1, Name = "Apple", Percentage = 3, Price = decimal.MaxValue, Quantity = 200, Years = 5 };
+            var stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118747"), Name = "Apple", Percentage = 3, Price = decimal.MaxValue, Quantity = 200, Years = 5 };
 
             calculator.Calculate(stockData);
         }
@@ -157,7 +157,7 @@ namespace StockCalculator.Tests.Services
         public void CalculateExceptionYearsTest()
         {
             // max value price
-            var stockData = new Stock { Id = 1, Name = "Apple", Percentage = 3, Price = 3, Quantity = 200, Years = int.MaxValue };
+            var stockData = new Stock { Id = new Guid("ad35cabb-b21e-4813-8026-ec301c118748"), Name = "Apple", Percentage = 3, Price = 3, Quantity = 200, Years = int.MaxValue };
 
             calculator.Calculate(stockData);
         }

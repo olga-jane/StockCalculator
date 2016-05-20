@@ -20,7 +20,7 @@ namespace StockCalculator.Models
         /// </summary>
         /// <param name="id">stock internal id</param>
         /// <returns>It is assumed that single stock will always be returned with values</returns>
-        Stock GetStock(int id);
+        Stock GetStock(Guid id);
 
         /// <summary>
         /// Save stock data with list of values
