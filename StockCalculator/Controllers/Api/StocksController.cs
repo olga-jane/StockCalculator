@@ -16,7 +16,7 @@ namespace StockCalculator.Controllers
 
         private readonly string errorMessage = "An error happened. Please see error log";
 
-        public StocksController() : this(new StockFileRepository("C:/TmpData"), new FinanceCalculator())
+        public StocksController() : this(new StockFileRepository(System.IO.Path.GetTempPath()), new FinanceCalculator())
         {
         }
 

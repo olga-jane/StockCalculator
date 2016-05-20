@@ -17,6 +17,7 @@ namespace StockCalculator.Models
         public StockFileRepository(string dataDirectory)
         {
             dataDir = dataDirectory + "/StockData";
+            Directory.CreateDirectory(dataDir);
             fileNameTemplate = "stock{0}.json";
             fullFileNameTemplate = dataDir + "/" + fileNameTemplate;
         }
